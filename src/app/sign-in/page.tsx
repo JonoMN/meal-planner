@@ -12,6 +12,9 @@ export default function SignInPage() {
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState<string | null>(null);
 
+  const search = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '');
+  const redirectTo = search.get('redirectTo') || '/dashboard';
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
@@ -25,7 +28,7 @@ export default function SignInPage() {
       return;
     }
 
-    router.push('/dashboard');
+    router.push(redirectTo);
   }
 
   return (
@@ -58,7 +61,7 @@ export default function SignInPage() {
       </form>
       <p className="mt-4 text-sm">
         New here?{' '}
-        <a className="underline" href="/auth/sign-up">
+        <a className="underline" href="/sign-up">
           Create an account
         </a>
       </p>

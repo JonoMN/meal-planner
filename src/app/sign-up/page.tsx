@@ -67,7 +67,7 @@ export default function SignUpPage() {
       </form>
       <p className="mt-4 text-sm">
         Already have an account?{' '}
-        <a className="underline" href="/auth/sign-in">
+        <a className="underline" href="/sign-in">
           Sign in
         </a>
       </p>
